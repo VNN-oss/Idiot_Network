@@ -1,7 +1,7 @@
 import pandas as pd
 import random as r
 #Initializing Math Questions
-def generator(runtime):
+def Generate(runtime):
     math = {"Questions":[], "Answer": [], "Distance": []}
     for i in range(0, runtime):
         add1 = r.randint(1, r.randint(1, 100))
