@@ -11,7 +11,7 @@ from pesudo_generator import generator
 math_problems = Generate(runtime)
 label_quality = LabelEncoder()
 
-X = math_problems.drop("Answer", axis = 1) #
+X = math_problems.drop("Answer", axis = 1) #A.I's prediction
 y = math_problems['Distance'] #Actual answer
 
 X_train, X_Test, y_train,y_test = train_test_split(X,y, test_size = .2, random_state = 50)
@@ -21,3 +21,4 @@ mlpc.fit(X_train,y_train)
 pred = mlpc.predict(X_Test)
 print(classification_report(y_train,pred))
 print(confusion_matrix(y_test,pred))
+
