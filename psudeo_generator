@@ -1,26 +1,37 @@
-import pandas as pd
 import random as r
-#Initializing Math Questions
 def Generate(runtime):
+    #Initailze varibles
     math = {"Questions":[], "Answer": [], "Distance": []}
+    clock = r.randint(0,1)
+    
+    #Create questions
     for i in range(0, runtime):
+        #print(clock)
         add1 = r.randint(1, r.randint(1, 100))
         add2 = r.randint(1, r.randint(1, 100))
-        if (r.randint(0,1) == 1):
+        equ = r.randint(0, 2)
+        if (equ == 0):
             ans = add1 + add2
             que = str(add1) + str(add2) + '.1'
             que = float(que)
-        else:
+        elif(equ == 1):
             ans = add1 * add2
             que = str(add1) + str(add2) + '.2'
             que = float(que)
+        else:
+            ans = add1 - add2
+            que = str(add1) + str(add2) + '.3'
+            que = float(que)
+            
         math["Questions"].append(que)
-        if (r.randint(0,1) == 1):
+        
+        #Decide if question is right or wrong.
+        if (clock == 0):
+            clock = clock + 1
             math["Answer"].append(ans)
             math["Distance"].append(1)
         else:
+            clock = clock -1
             math["Answer"].append(r.randint(0, r.randint(1, 100)))
             math["Distance"].append(0)
-    #Create Dataframe
-    math_problems = pd.DataFrame(math)
-    return math_problems
+    return math
