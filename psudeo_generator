@@ -1,4 +1,3 @@
-import random as r
 def Generate(runtime):
     #Initailze varibles
     math = {"Questions":[], "Answer": [], "Distance": []}
@@ -18,11 +17,15 @@ def Generate(runtime):
             ans = add1 * add2
             que = str(add1) + str(add2) + '.2'
             que = float(que)
-        else:
+        elif(equ == 2):
             ans = add1 - add2
             que = str(add1) + str(add2) + '.3'
             que = float(que)
-            
+        else:
+            if (add1 < add2):
+                add1 = add2
+                add2 = add1
+            ans = add1/add2
         math["Questions"].append(que)
         
         #Decide if question is right or wrong.
