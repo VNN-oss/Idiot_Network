@@ -22,7 +22,7 @@ def Generate(runtime):
             que = str(add1) + str(add2) + '.3'
             que = float(que)
         else:
-            if (add1 < add2):
+            if (add1 < add2): 
                 add1 = add2
                 add2 = add1
             ans = add1/add2
