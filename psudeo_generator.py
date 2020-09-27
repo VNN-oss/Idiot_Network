@@ -37,4 +37,5 @@ def Generate(runtime):
             clock = clock -1
             math["Answer"].append(r.randint(0, r.randint(1, 100)))
             math["Distance"].append(0)
+    sns.countplot(math['Distance'])
     return math
