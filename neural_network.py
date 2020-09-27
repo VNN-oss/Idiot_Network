@@ -31,7 +31,7 @@ class Nerual_Network():
         print("Training network....")
         mlpc.fit(X_train,y_train)
 
-        pred = mlpc.predict(X_Test)
+        pred = mlpc.predict(X_Test) 
 
         print("Creating report")
         #Return and plot accuracy
