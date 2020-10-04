@@ -30,7 +30,6 @@ class Nerual_Network():
         
         print("Training network....")
         mlpc.fit(X_train,y_train)
-
         pred = mlpc.predict(X_Test) 
 
         print("Creating report")
@@ -38,5 +37,5 @@ class Nerual_Network():
         print(classification_report(y_test,pred))
         print("Creating confusion matrix")
         print(confusion_matrix(y_test, pred))
-        #plot = sns.jointplot(x = "Correct", y = "Incorrect", data = self.y_test,kind = "reg", truncate = False, xlim = (0, self.data_amount), ylim = (0, self.t_size), color = 'r', height = 7)
+        
         return self.pred
