@@ -8,25 +8,34 @@ from sklearn.metrics import confusion_matrix, classification_report
 from sklearn.preprocessing import StandardScaler, LabelEncoder
 from sklearn.model_selection import train_test_split
 #from pesudo_generator import generator
+def frame_data(data, t_size):
+    pack = []
+    #Split data
+    data = pd.DataFrame(data)
+    print("Spliting data")
+    X = data.drop("Distance", axis = 1) 
+    y = data['Distance']#Actual answer
+    X_train, X_Test, y_train,y_test = train_test_split(X,y, test_size = t_size, random_state = 0)
+    print("Test_size: {a}".format(a=len(X_Test["Questions"])))
+    print("Packaging data...")
+    pack.append(X_train)
+    pack.append(X_Test)
+    pack.append(y_train)
+    pack.append(y_test)
+    return pack
+
 class Neural_Network():
-    def __init__(self, data_amount,t_size,y_test,pred):
+    def __init__(self, data_amount,t_size,pred):
         self.data_amount = data_amount
         self.t_size = t_size
-        self.y_test = y_test
         self.pred = pred
-   # @classmethod
-   # def frame_data(cls,data):
-   #     print("Creating dataframe...")
-   #     data = pd.DataFrame(data)
-   #     X = data.drop("Distance", axis = 1) 
-   #     y = data['Distance']#Actual answer
-   #     
-   #     print("Spliting data")
-   #     #Split data
-   #     X_train, X_Test, y_train,y_test = train_test_split(X,y, test_size = self.t_size, random_state = 50)
-   #     return X_train, X_Test, y_train, y_test
-   # Find a way to import args into different create function
-    def create(self):
+    def create(self,pack):
+        print("Unpacking data...")
+        X_train = pack[0]
+        X_Test = pack[1]
+        y_train = pack[2]
+        y_test = pack[3]
+        print("Creating dataframe...")
 
         print("Creating network")
         #Create Neural Network
