@@ -8,7 +8,7 @@ class Set():
         clock = r.randint(0,1)
         que = 0
         #Create questions
-        for i in range(0, runtime):
+        for i in range(1, runtime):
             #print(clock)
             add1 = r.randint(1, r.randint(1, 1000))
             add2 = r.randint(1, r.randint(1, 1000))
@@ -50,5 +50,5 @@ class Set():
         del self.math["Questions"][amount:]
         del self.math["Answer"][amount:]
         del self.math["Distance"][amount:]
-        print("Data succesfully cut by {a}".f(a= amount))
+        print("Data succesfully cut by {a}".format(a= amount))
         return self.math
