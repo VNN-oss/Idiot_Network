@@ -1,11 +1,8 @@
 #Full nerual_network class
 import pandas as pd
-import seaborn as sns
 import random as r
-import matplotlib.pyplot as plt
 from sklearn.neural_network import MLPClassifier
 from sklearn.metrics import confusion_matrix, classification_report
-from sklearn.preprocessing import StandardScaler, LabelEncoder
 from sklearn.model_selection import train_test_split
 #from pesudo_generator import generator
 def frame_data(data, t_size):
@@ -22,14 +19,17 @@ def frame_data(data, t_size):
     pack.append(X_Test)
     pack.append(y_train)
     pack.append(y_test)
+    print("Returning data...")
     return pack
-
 class Neural_Network():
     def __init__(self, data_amount,t_size,pred):
         self.data_amount = data_amount
         self.t_size = t_size
         self.pred = pred
     def create(self,pack):
+        if (pack == None):
+            raise ("No datapack detected.")
+        print("Data Fetched !!")
         print("Unpacking data...")
         X_train = pack[0]
         X_Test = pack[1]
@@ -50,5 +50,5 @@ class Neural_Network():
         #Return and plot accuracy
         print(classification_report(y_test,pred))
         print("Creating confusion matrix")
-        print(confusion_matrix(y_test, pred))
+        pred = confusion_matrix(y_test, pred)
         return self.pred
