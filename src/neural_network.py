@@ -52,3 +52,15 @@ class Neural_Network():
         print("Creating confusion matrix")
         pred = confusion_matrix(y_test, pred)
         return self.pred
+    
+def plot(*args):
+    to_graph = {"set":[],"label":[]}
+    j = args[-1]
+    print(j)
+    for i in range(0, j):
+        to_graph["label"].append("Net{}".format(i))
+    for i in range (0, j):
+        to_graph["set"].append(round(args[0][i][0,0]/args[0][i][1,1]))
+       # print(to_graph["set"])
+    sns.countplot(x= "label",data = to_graph)
+    print(to_graph)
