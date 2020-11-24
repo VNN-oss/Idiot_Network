@@ -1,3 +1,5 @@
+from environment import Set
+from neural_network import Neural_Network
 Net0 = Neural_Network(1000000, .2,0)
 Net1 = Neural_Network(15000, .2,0)
 Net2 = Neural_Network(1000,0.0375,0)
